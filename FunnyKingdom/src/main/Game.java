@@ -4,7 +4,7 @@ public class Game {
 	
 	public static void main(String[] args) {
 		System.out.println("Hello World");
-		System.out.println("Hello world Quochello");
+		System.out.println("Hello world Quochello name háidfisđfdsff");
 	}
 
 }
