@@ -13,7 +13,7 @@ import scenes.Playing;
 import scenes.Setting;
 
 public class Game extends JFrame implements Runnable {
-	
+	final int age;
     private final double targetFPS = 60;    
     private final double targetUPS = 60;  
 
