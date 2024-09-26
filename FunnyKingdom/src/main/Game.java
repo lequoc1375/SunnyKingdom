@@ -1,19 +1,12 @@
 package main;
 
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.io.InputStream;
-import javax.imageio.ImageIO;
 import javax.swing.JFrame;
-
-import Inputs.KeyBoard;
-import Inputs.Mouse;
 import scenes.Menu;
 import scenes.Playing;
 import scenes.Setting;
 
 public class Game extends JFrame implements Runnable {
-	final int age;
+
     private final double targetFPS = 60;    
     private final double targetUPS = 60;  
 
@@ -23,8 +16,7 @@ public class Game extends JFrame implements Runnable {
     private int frameCount;                    
     private Thread gameLoopThread;   
     
-    Mouse mouse;
-    KeyBoard keyboard;
+
     
     //Classes
     private Renders render;
@@ -35,7 +27,6 @@ public class Game extends JFrame implements Runnable {
     
     public static void main(String[] args) {
         Game game = new Game(); 
-        game.initInputs();
         game.start();
     }
 
@@ -60,15 +51,7 @@ public class Game extends JFrame implements Runnable {
 
 	
 
-	private void initInputs() {
-    	mouse = new Mouse();
-    	keyboard = new KeyBoard();
-    	addMouseListener(mouse);
-    	addMouseMotionListener(mouse);
-    	addKeyListener(keyboard);
-    	setFocusable(true);
-    	requestFocus();
-    }
+
     
     private void start() {
         gameLoopThread = new Thread(this);
