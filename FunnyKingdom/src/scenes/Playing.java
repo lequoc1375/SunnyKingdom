@@ -22,9 +22,7 @@ public class Playing extends GameScenes implements SceneMethod {
     public Playing(Game game) {
         super(game);
         lv1 = LevelBuilder.getLevelData();
-        tileManager = new tileManagers();
-        
-        // Initialize the Menus button
+        tileManager = new tileManagers();        
          // Adjust the position and size as needed
         bottomBar = new BottomBar(0,640,960,100,this);
     }
