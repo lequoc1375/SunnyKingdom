@@ -11,7 +11,7 @@ public class loadSave {
 	public static BufferedImage getSpiritAtlas() {
 		
 		BufferedImage Image =  null;
-        InputStream is = loadSave.class.getClassLoader().getResourceAsStream("ground/GRASS+.png");        
+        InputStream is = loadSave.class.getClassLoader().getResourceAsStream("ground/spriteatlas.png");        
         try {
             Image = ImageIO.read(is);
         } catch (IOException e) {

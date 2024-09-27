@@ -19,10 +19,13 @@ public class tileManagers {
 	//Change depend on developer
 	private void creatingTile() {
 		int id = 0;
-		tiles.add(Grass = new tile(getSprite(19,0), id++, "Grass"));		
-		tiles.add(Water = new tile(getSprite(19,13),id++, "Water"));	
-		tiles.add(Tree = new tile(getSprite(10,12),id++, "Tree"));	
-		tiles.add(Road = new tile(getSprite(14,12),id++, "Road"));	
+		tiles.add(Water = new tile(getSprite(0,0),	id++, "Water"));	
+		tiles.add(Grass = new tile(getSprite(8,1), 	id++, "Grass"));			
+		tiles.add(Road = new tile(getSprite(9,0),	id++, "Road"));	
+	}
+	
+	public tile getTile(int id) {
+		return tiles.get(id);
 	}
 
 	private void loadAtlas() {
@@ -30,11 +33,11 @@ public class tileManagers {
 	}
 	
 	public BufferedImage getSprite(int id) {
-		return tiles.get(id).getSprite();
+		return tiles.get(id).getSprites();
 	}
 	//Change depend on developer
 	private BufferedImage getSprite(int x, int y) {
-		return atlas.getSubimage(x*16, y*16, 16, 16);
+		return atlas.getSubimage(x*32, y*32, 32, 32);
 	}
 
 }

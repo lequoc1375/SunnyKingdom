@@ -25,9 +25,11 @@ public class GameScreen extends JPanel {
     private Game game;
     
     public GameScreen(Game game) {
+    	
     	this.game = game;
         initInputs();
         SetSizeScreen();
+        
     }
     
     //Input key and mouse

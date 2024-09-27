@@ -1,6 +1,11 @@
 package main;
 
 import javax.swing.JFrame;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+
+import com.formdev.flatlaf.FlatDarkLaf;
+
 import scenes.Menu;
 import scenes.Playing;
 import scenes.Setting;
@@ -30,7 +35,8 @@ public class Game extends JFrame implements Runnable {
         game.start();
     }
 
-    public Game() {                      
+    public Game() {     
+
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         initClasses();
         pack();
@@ -40,6 +46,7 @@ public class Game extends JFrame implements Runnable {
     }
     
     private void initClasses() {
+ 
         render = new Renders(this);
         GameScreen gameScreen = new GameScreen(this);
         add(gameScreen);    
@@ -115,6 +122,7 @@ public class Game extends JFrame implements Runnable {
 	public Setting getSetting() {
 		return setting;
 	}
+
 
 
 }

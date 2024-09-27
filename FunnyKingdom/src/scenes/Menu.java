@@ -8,6 +8,10 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import javax.imageio.ImageIO;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+
+import com.formdev.flatlaf.FlatDarkLaf;
 
 import UI.Button;
 import main.Game;
@@ -24,18 +28,20 @@ public class Menu extends GameScenes implements SceneMethod  {
     private Button Playing, Quit,Setting;
 
 	public Menu(Game game) {
+		
 		super(game);
         random = new Random();
         loadImage(); 
 		loadSprites();
 		initButtons();
-		
 	}
 
 	private void initButtons() {
+		
 		Playing = new Button(0,320,320,30,"PLAY GAME");
 		Setting = new Button(0,420,320,30,"SETTING");
 		Quit	= new Button(0,520,320,30,"QUIT");
+		
 		
 	}
 
@@ -54,7 +60,7 @@ public class Menu extends GameScenes implements SceneMethod  {
 	//GET IMAGE ADDRESS
 	//Change depend on developer
     private void loadImage() {              
-        InputStream is = getClass().getResourceAsStream("/ground/GRASS+.png");        
+        InputStream is = getClass().getResourceAsStream("/ground/spriteatlas.png");        
         try {
             Image = ImageIO.read(is);
         } catch (IOException e) {
@@ -62,18 +68,18 @@ public class Menu extends GameScenes implements SceneMethod  {
         }
     }
  
-	//Change depend on developer
+
 	private void loadSprites() {
-        for (int i = 0; i < 14; i++) {
-            for (int j = 0; j < 25; j++) {
-                sprites.add(Image.getSubimage(j * 16, i * 16, 16, 16));
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                sprites.add(Image.getSubimage(j * 32, i * 32, 32, 32));
             }
         }
     }
 	//Change depend on developer
-    private int getRndInt() {
-        return random.nextInt(25 * 14);
-    }
+	/*
+	 * private int getRndInt() { return random.nextInt(25 * 14); }
+	 */
 
 	@Override
 	public void mouseClicked(int x, int y) {
