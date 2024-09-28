@@ -125,6 +125,12 @@ public class Menu extends GameScenes implements SceneMethod  {
 	    checkButtonReleased(Quit, MENU,x,y);
 	}
 
+	@Override
+	public void mouseDragged(int x, int y) {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 
 

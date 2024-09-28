@@ -15,7 +15,7 @@ import static main.GameStates.*;
 
 public class BottomBar {
 	private int x, y, Width, Height;
-	private Button Menus; // Declare the Menus button
+	private Button Menus,Save; // Declare the Menus button
 	private Playing playing;
 	private ArrayList<Button> tileButton = new ArrayList<>();
 	private tile selectedTile;
@@ -30,7 +30,8 @@ public class BottomBar {
 	 
 	
 	public void initButton() {
-		Menus = new Button(0, 640, 100, 100, "MENU");
+		Menus = new Button(0, 640, 100, 30, "MENU");
+		Save = new Button(0,670,100,30, " Save");
 		int width  = 64;
 		int height = 64;
 		int xCor = 120;
@@ -51,6 +52,7 @@ public class BottomBar {
 	
 	public void drawButton(Graphics g) {
         Menus.draw(g);
+        Save.draw(g);
         drawTileButton(g);
         drawSelectedTile(g);
 
@@ -103,6 +105,9 @@ public class BottomBar {
         if (Menus.rectangleCheck().contains(x, y)) {
             setGameState(MENU);
         }
+        else if(Save.rectangleCheck().contains(x,y)) {
+        	saveLevel();
+        }
         else {
         	for(Button buttons : tileButton) {
         		if(buttons.rectangleCheck().contains(x,y)) {
@@ -115,8 +120,15 @@ public class BottomBar {
         
     }
 
-    public void mouseMoved(int x, int y) {
+    private void saveLevel() {
+		playing.saveLevel();
+		
+	}
+
+
+	public void mouseMoved(int x, int y) {
         Menus.setHovered(Menus.rectangleCheck().contains(x, y)); // Fixed missing semicolon
+        Save.setHovered(Save.rectangleCheck().contains(x,y));
         if (!Menus.rectangleCheck().contains(x, y)) {
             for (Button button : tileButton) { // Updated variable name for clarity
                 button.setHovered(button.rectangleCheck().contains(x, y)); // Check if hovered over each button
@@ -127,6 +139,7 @@ public class BottomBar {
 
     public void mousePressed(int x, int y) {
         Menus.setMousePressed(Menus.rectangleCheck().contains(x, y));
+        Save.setMousePressed(Save.rectangleCheck().contains(x, y));
         if (!Menus.rectangleCheck().contains(x, y)) {
             for (Button button : tileButton) {
                 button.setMousePressed(button.rectangleCheck().contains(x, y)); // Check if pressed
@@ -137,7 +150,7 @@ public class BottomBar {
 
     public void mouseReleased(int x, int y) {
         Menus.resetButton(); // Reset the button state
-        
+        Save.resetButton();
         for(Button buttons : tileButton) {
         	buttons.resetButton();
         }
